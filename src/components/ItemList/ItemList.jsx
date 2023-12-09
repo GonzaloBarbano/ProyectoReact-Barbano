@@ -1,12 +1,13 @@
-import { Item } from "../Item/Item";
+import Item from "../Item/Item"
+import "./ItemList.css"
 
-export const ItemList = ({ products }) => {
-  return (
-    <>
-      <div className="d-flex flex-wrap">
-        {products.map((product) => (
-          <Item key={product.id} {...product} /> ))}
-      </div>
-    </>
-  );
+const ItemList = ({products = []}) => {
+    return (
+        <div className="itemList">
+            {products.map((product) => (
+                <Item key={product.id} product={product}/>
+            ))}
+        </div>
+    );
 };
+export default ItemList;

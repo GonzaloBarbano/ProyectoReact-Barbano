@@ -1,0 +1,21 @@
+.cartContainer {
+    text-align: center;
+}
+
+.cartContainer svg {
+    color: red;
+    cursor: pointer;
+    width: 24px;
+}
+
+.itemCartDetailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.itemCartDetail{
+    display: flex;
+    flex-direction: row;
+}

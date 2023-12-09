@@ -1,34 +1,37 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
-import { ItemList } from "../ItemList/ItemList";
+import {Container} from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import {getAllProducts, getProductsByCategory} from "../Products/Products";
+import ItemList from "../ItemList/ItemList"
+import "./ItemListContainer.css"
 
-export const ItemListContainer = ({ greeting }) => {
-  const { category } = useParams();
 
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const ItemListContainer = ({ greeting }) => {
+    const {categoryId} = useParams();
+    const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-
-    setIsLoading(true); 
-    getProducts()
-      .then((resp) => {
-        if(category) {
-        const productsFilter = resp.filter(product => product.category === category);
-        setProducts(productsFilter);
-        setIsLoading(false);
+    useEffect (() => {
+        if (categoryId) {
+            getProductsByCategory (categoryId)
+            .then((data) => {
+                console.log("Data loaded:", data);
+                setProducts(data);
+            })
+                .catch((error) => console.warn(error))
+                
         } else {
-          setProducts(resp);
-        setIsLoading(false);
+            getAllProducts()
+                .then ((data) => setProducts(data))
+                .catch((error) => console.warn(error))
         }
-      })
-      .catch((error) => console.log(error));
-  }, [category]);
-  return (
-    <>
-      <div> {greeting} </div>
-      { isLoading ? <h2>Cargando productos ...</h2> : <ItemList products={products} /> }
-    </>
-  );
-};
+    }, [categoryId]);
+
+    return (
+        <Container>
+            <h1 className="greeting">{greeting}</h1>
+            <ItemList products={products}/>
+        </Container>
+    );
+}
+
+export default ItemListContainer;

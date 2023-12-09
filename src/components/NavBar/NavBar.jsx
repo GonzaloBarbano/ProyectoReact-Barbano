@@ -1,24 +1,24 @@
+import { Container, Navbar, Dropdown } from "react-bootstrap";
+import CartWidget from "../CartWidget/CartWidget";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { CartWidget } from "../CartWidget/CartWidget";
 
-export const NavBar = () => {
-  return (
-    <nav className="d-flex justify-content-around mt-2">
-      <Link to={"/"}>
-        <h4>Mi tienda</h4>
-      </Link>
-      <div>
-        <Link to={"/"}>
-          <button className="btn btn-dark mx-2">Inicio</button>
-        </Link>
-        <Link to={"/category/calzados"}>
-          <button className="btn btn-dark mx-2">Calzados</button>
-        </Link>
-        <Link to={"/category/ropa"}>
-          <button className="btn btn-dark mx-2">Ropa</button>
-        </Link>
-      </div>
-      <CartWidget />
-    </nav>
-  );
+const NavBar = () => {
+    return (
+        <Navbar bg="dark" variant="dark">
+            <Container>
+                <Dropdown className="bg-dark border-danger">
+                    <Dropdown.Toggle className="bg-dark border-danger" variant="success" id="dropdown-basic">
+                        Categorías
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to="/category/calzados">Calzados</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/category/ropa">Ropa</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <CartWidget />
+            </Container>
+        </Navbar>
+    );
 };
+export default NavBar;

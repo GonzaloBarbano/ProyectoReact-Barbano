@@ -1,10 +1,32 @@
-# React + Vite
+# Ecommerce Online - Tienda Deportiva
+Se desarrolló una tienda de Indumentaria deportiva. Pudiendo filtrar el listado de productos segun el tipo de prenda.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+El proyecto fue creado con:
+    *ReactJS
+    *Bootstrap
+    *Firebase
 
-Currently, two official plugins are available:
+## Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# PreEntrega2-Barbano
-# PreEntrega2-Barbano
+https://github.com/GonzaloBarbano/PreEntrega2-Barbano
+
+## Para ejecutar el servidor de desarrollo de Reac e iniciar proyecto (Available Scripts)
+
+El proyecto se inició con Create Reac App
+Deberá tener instalado Node.js en el sistema
+
+Para utilizar la aplicación en el modo de desarrollo, ejecute:
+
+### `npm install`
+
+### `npm run dev`
+
+Abrir el enlance al puerto
+
+La página volverá a cargar cuando realice cambios.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

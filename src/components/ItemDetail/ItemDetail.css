@@ -1,0 +1,10 @@
+.itemDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cart {
+    margin-top: 5px;
+}

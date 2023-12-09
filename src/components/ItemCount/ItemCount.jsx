@@ -1,35 +1,42 @@
-import { useState } from "react";
+import React, {useEffect, useState} from "react";
+import { Button } from "react-bootstrap";
+import "./ItemCount.css"
 
-export const ItemCount = ({ stock, initial = 1, onAdd }) => {
-  const [count, setCount] = useState(initial);
-  
-  const increment = () => {
-    if (count < stock) {
-      return setCount(count + 1);
+const ItemCount = ({initial, stock, onAdd}) => {
+    const [count, setCount] = useState(parseInt(initial));
+
+    const handleSubstract = () => {
+        setCount(count - 1);
     }
-    setCount(count);
-  };
 
-  const decrement = () => {
-    if (count === 0) {
-      return setCount(0);
+    const handleAdd = () => {
+        setCount(count + 1);
     }
-    setCount(count - 1);
-  };
 
+    const handleCLick = () => onAdd(count);
 
-  return (
-    <div className="d-flex flex-column col-2 justify-content-center align-content-center border border-3 border-primary rounded-3 p-4">
-      <div>
-        <button className="btn btn-dark mx-3" onClick={decrement}>
-          -
-        </button>
-        <strong>{count}</strong>
-        <button className="btn btn-dark mx-3" onClick={increment}>
-          +
-        </button>
-      </div>
-      <button className="btn btn-primary mt-2" onClick={() => onAdd(count)}>Agregar al carrito</button>
-    </div>
-  );
+    useEffect (() => {
+        setCount(parseInt(initial));
+    }, [initial]);
+
+    return (
+        <div className="itemCountContainer">
+            <div>
+                <Button variant="outline-danger" disabled={count <= 1} onClick={handleSubstract}>
+                    -
+                </Button>
+                <h5>{count}</h5>
+                <Button variant="outline-success" disabled={count >= stock} onClick={handleAdd}>
+                    +
+                </Button>
+            </div>
+            <div>
+                <Button variant="success" disabled={stock <= 0} onClick={handleCLick}>
+                    Agregar al Carrito
+                </Button>
+            </div>
+        </div>
+    );
 };
+
+export default ItemCount;

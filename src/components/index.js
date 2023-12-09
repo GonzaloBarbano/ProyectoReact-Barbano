@@ -1,3 +1,4 @@
+//Barrel
 export * from './Button/Button';
 export { default as Cart } from './Cart/Cart';
 export { default as CartWidget } from './CartWidget/CartWidget';

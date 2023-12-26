@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import "./Cart.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import { createOrder } from "../utils/orders";
 import OrderModal from "../OrderModal/OrderModal";
-import CartContext from "../../context/CartContext";
+
 
 
 const buyerMock = {

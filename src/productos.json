@@ -1,0 +1,93 @@
+[
+    {
+      "id": "1",
+      "name": "Zapatilla",
+      "price": "68000",
+      "category": "calzados",
+      "img": "https://d2r9epyceweg5n.cloudfront.net/stores/057/265/products/9330-blanco-t031-5001ff75c5cc9172dc16485688110792-1024-1024.jpg",
+      "stock": "30",
+      "description": "Zapatilla"
+    },
+    {
+      "id": "2",
+      "name": "Remera",
+      "price": "8000",
+      "category": "ropa",
+      "img": "https://lafabricaderemeras.com.ar/wp-content/uploads/2023/02/2-REMERAS-DEPORTIVAS.jpg",
+      "stock": "20",
+      "description": "Remera"
+    }, 
+    {
+      "id": "3",
+      "name": "Short",
+      "price": "6000",
+      "category": "ropa",
+      "img": "https://http2.mlstatic.com/D_NQ_NP_715869-MLA45656943415_042021-O.webp",
+      "stock": "30",
+      "description": "Short"
+    },
+    {
+      "id": "4",
+      "name": "Zapatilla",
+      "price": "60000",
+      "category": "calzados",
+      "img": "https://d2r9epyceweg5n.cloudfront.net/stores/057/265/products/9314-verde-t031-8e8a6fef577d8105ad16480764578491-1024-1024.jpg",
+      "stock": "30",
+      "description": "Zapatilla"
+    },
+    {
+      "id": "5",
+      "name": "Remera",
+      "price": "7000",
+      "category": "ropa",
+      "img": "https://http2.mlstatic.com/D_NQ_NP_801433-MLA69978895589_062023-O.webp",
+      "stock": "30",
+      "description": "Remera"
+    },
+    {
+      "id": "6",
+      "name": "Zapatilla",
+      "price": "78000",
+      "category": "calzados",
+      "img": "https://http2.mlstatic.com/D_NQ_NP_716575-MLA49718384068_042022-O.webp",
+      "stock": "30",
+      "description": "Zapatilla"
+    },
+    {
+      "id": "7",
+      "name": "Calza",
+      "price": "6500",
+      "category": "ropa",
+      "img": "https://http2.mlstatic.com/D_NQ_NP_953566-MLA49535873904_032022-O.webp",
+      "stock": "20",
+      "description": "Calza"
+    },
+    {
+        "id": "8",
+        "name": "Pantalon",
+        "price": "10500",
+        "category": "ropa",
+        "img": "https://tiendaseptimo.vtexassets.com/arquivos/ids/414016/to_165088.jpg?v=638189724567630000",
+        "stock": "20",
+        "description": "Pantalo "
+      },
+      {
+        "id": "9",
+        "name": "Zapatilla",
+        "price": "70000",
+        "category": "calzados",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_700952-MLA47738615138_102021-O.webp",
+        "stock": "20",
+        "descripcion": "Zapatilla"
+      },
+      {
+        "id": "10",
+        "name": "Remera",
+        "price": "6000",
+        "category": "ropa",
+        "img": "https://borabikes.com.ar/62965-large_default/remera-deportiva-mujer-drb-fierce-ciclismo-casual-bora-bikes.jpg",
+        "stock": "20",
+        "description": "Remera"
+      }
+    
+  ]

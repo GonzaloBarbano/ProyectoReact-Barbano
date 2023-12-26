@@ -1,25 +1,36 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
-import { getProduct } from "../Products/Products";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { db } from "../../config/firebaseConfig";
+import { getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState();
-    const {id} = useParams();
+    const [product, setProduct] = useState(null)
+    const [ loading, setLoading] = useState(true)
+    const {itemId} = useParams();
 
-    useEffect (() => {
-        getProduct (id)
-            .then((data) => {
-                setProduct (data);
+    useEffect (()=>{
+        setLoading (true)
+        const docRef = doc(db, "prducts", tiemId)
+
+        getDoc(docRef)
+            .then(response => {
+                const data= response.data()
+                const productsAdapted = {id: response.id, ...data}
+                setProduct(productsAdapted)
             })
-            .catch(error => console.warn(error))
-    }, [id]);
-
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(()=> {
+                setLoading(false)
+            })
+    },[itemId])
     return (
         <Container>
             <h1>Detalle del Producto</h1>
-            {product && <ItemDetail product={product}/>}
+            <ItemDetail {...products}/>
         </Container>
     );
 };

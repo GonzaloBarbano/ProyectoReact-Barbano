@@ -1,30 +1,40 @@
 import { useEffect, useState } from "react";
-import {Container} from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import {getAllProducts, getProductsByCategory} from "../Products/Products";
 import ItemList from "../ItemList/ItemList"
 import "./ItemListContainer.css"
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../config/firebaseConfig";
+import { useParams } from "react-router-dom";
+import {Container} from "react-bootstrap";
 
 
-const ItemListContainer = ({ greeting }) => {
-    const {categoryId} = useParams();
-    const [products, setProducts] = useState([]);
+const ItemListCointainer = ({ greeting }) => {
+    const [products, setProducts] = useState ([])
+    const [loading, setLoading] = useState (true)
+    const {categoryId} = useParams()
 
-    useEffect (() => {
-        if (categoryId) {
-            getProductsByCategory (categoryId)
-            .then((data) => {
-                console.log("Data loaded:", data);
-                setProducts(data);
+
+    useEffect(() => {
+        setLoading(true)
+
+        const collectionRef = categoryId
+        ? query (collection (db, "products"), where("category", "==", categotyId) ) 
+        : collection (db, "prducts")
+
+        getDocs (collectionRef)
+            .then (response => {
+                const productsAdapted = response.docs.map(doc =>{
+                    const data = doc.data()
+                    return {id: doc.id, ...data}
+                })
+                setProducts (productsAdapted)
             })
-                .catch((error) => console.warn(error))
-                
-        } else {
-            getAllProducts()
-                .then ((data) => setProducts(data))
-                .catch((error) => console.warn(error))
-        }
-    }, [categoryId]);
+            .catch (error => {
+                console.error(error);
+            })
+            .finally (() => {
+                setLoading(false)
+            })
+    }, [categoryId])
 
     return (
         <Container>
@@ -32,6 +42,6 @@ const ItemListContainer = ({ greeting }) => {
             <ItemList products={products}/>
         </Container>
     );
-}
+};
 
-export default ItemListContainer;
+export default ItemListCointainer;
